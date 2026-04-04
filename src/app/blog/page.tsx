@@ -2,7 +2,7 @@ import { supabase } from '@/lib/supabase'
 import Link from 'next/link'
 import type { Post } from '@/types/blog'
 
-export const revalidate = 60
+export const revalidate = 60 // ISR: revalidate every 60s
 
 async function getPosts(): Promise<Post[]> {
   const { data } = await supabase

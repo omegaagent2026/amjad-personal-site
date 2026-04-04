@@ -28,9 +28,7 @@ values (
   'Welcome to my blog',
   'welcome',
   'First post — introducing my writing on technology, education, and travel.',
-  '# Welcome
-
-This is the beginning of my writing here. Expect essays on technology, reflections on education, and stories from the road.',
+  '# Welcome\n\nThis is the beginning of my writing here. Expect essays on technology, reflections on education, and stories from the road.',
   'essay',
   true,
   now(),

@@ -10,11 +10,11 @@ Personal website and blog for Amjad Chaudhry: engineer, educator, traveler.
 
 ## Features
 
-- ✅ Landing page (hero, about, recent posts)
-- ✅ Blog listing (essays + videos, fetched live from Supabase)
-- ✅ Individual post pages with ISR (60s revalidation)
-- ✅ Video post support (YouTube embed)
-- ✅ Tags on posts
+- Landing page (hero, about, recent posts)
+- Blog listing (essays + videos, fetched from Supabase)
+- Individual post pages with ISR (60s revalidation)
+- Video post support (YouTube embed)
+- Tag support
 
 ## Setup
 
@@ -35,9 +35,10 @@ npm run dev
 
 ### 3. Deploy to Vercel
 
-1. Go to [vercel.com](https://vercel.com) → New Project → Import `amjad-personal-site`
-2. Add env vars: `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-3. Deploy → connect your domain in Vercel settings
+1. Push to GitHub (already done)
+2. Go to [vercel.com](https://vercel.com) → New Project → Import `amjad-personal-site`
+3. Add env vars: `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+4. Deploy → connect your domain in Vercel settings
 
 ## Publishing a Post
 
