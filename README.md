@@ -1,41 +1,46 @@
 # Amjad Chaudhry — Personal Website
 
-Personal website and blog for Amjad Chaudhry: engineer, educator, and traveler.
+Personal website and blog for Amjad Chaudhry: engineer, educator, traveler.
 
 ## Stack
 
-- **Frontend**: Next.js 14 (App Router)
-- **Database/Auth**: Supabase (free tier)
+- **Frontend + Hosting**: Next.js 14 (App Router) → Vercel (free tier)
+- **Database**: Supabase (free tier) — posts table with RLS
 - **Styling**: Tailwind CSS
-- **Hosting**: To be configured (domain integration with TaskFlow Omega dashboard)
 
-## Features Planned
+## Features
 
-- [ ] Landing / hero page
-- [ ] About section (engineer, educator, traveler)
-- [ ] Blog section — publish essays and videos
-- [ ] Omega Dashboard integration (hosted at this domain)
+- ✅ Landing page (hero, about, recent posts)
+- ✅ Blog listing (essays + videos, fetched live from Supabase)
+- ✅ Individual post pages with ISR (60s revalidation)
+- ✅ Video post support (YouTube embed)
+- ✅ Tags on posts
 
-## Getting Started
+## Setup
+
+### 1. Supabase
+
+1. Create a free project at [supabase.com](https://supabase.com)
+2. Go to **SQL Editor** and run `supabase-schema.sql`
+3. Copy your **Project URL** and **anon public key** from Settings → API
+
+### 2. Local dev
 
 ```bash
 npm install
 cp .env.example .env.local
-# Fill in NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY
+# Fill in your Supabase URL and anon key
 npm run dev
 ```
 
-## Tech Choices
+### 3. Deploy to Vercel
 
-- **Next.js**: Full-stack React with SSR/SSG and API routes — free on Vercel
-- **Supabase**: Free tier PostgreSQL + auth + storage — perfect for blog posts and media
-- **Tailwind**: Utility-first CSS, no component library lock-in
+1. Go to [vercel.com](https://vercel.com) → New Project → Import `amjad-personal-site`
+2. Add env vars: `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+3. Deploy → connect your domain in Vercel settings
 
-## Structure
+## Publishing a Post
 
-```
-src/
-  app/          # Next.js App Router pages
-  components/   # Reusable UI components
-public/         # Static assets
-```
+Insert a row into the `posts` table in Supabase:
+- Set `published = true` and `published_at = now()`
+- For videos: set `type = 'video'` and `video_url = 'https://youtube.com/watch?v=...'`
